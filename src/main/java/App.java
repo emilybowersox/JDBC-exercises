@@ -20,24 +20,29 @@ public class App {
                     "codeup"
             );
 
-//            Do a Select example
 
             Statement myStatement = connection.createStatement();
+
+            //            Do a Select example
             ResultSet myResults = myStatement.executeQuery("SELECT * FROM albums");
+            while (myResults.next()) {
+                System.out.println(myResults.getLong(1));
+            }
 
             //            An insert example
+            String aQuery = "INSERT into albums (artist, name, release_date, genre, sales) VALUES ('Arcade Fire', 'The Suburbs', 2009, 'Alt', 10.1)";
+            myStatement.executeUpdate(aQuery, Statement.RETURN_GENERATED_KEYS);
+            myResults = myStatement.getGeneratedKeys();
 
+            if (myResults.next()) {
+                System.out.println("The new record has been inserted! " + myResults.getLong(1));
+            }
 
 //            An update example
 
 
 //            A delete example
 
-            while (myResults.next()) {
-                System.out.println(myResults.getLong(1));
-
-
-            }
 
 
         } catch (SQLException throwables) {
