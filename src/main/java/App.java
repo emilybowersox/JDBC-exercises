@@ -1,8 +1,13 @@
+import java.sql.*;
 import java.sql.DriverManager;
+
+import java.sql.Connection;
 import java.sql.SQLException;
-// instead of above ^? import java.sql.*;
 
 import com.mysql.cj.jdbc.Driver;
+// instead of above ^? import java.sql.*;
+//it automatically changed/updated as i kept going
+
 
 public class App {
     public static void main(String[] args) {
@@ -15,14 +20,24 @@ public class App {
                     "codeup"
             );
 
+//            Do a Select example
+
+            Statement myStatement = connection.createStatement();
+            ResultSet myResults = myStatement.executeQuery("SELECT * FROM albums");
+
+            //            An insert example
 
 
+//            An update example
 
 
+//            A delete example
+
+            while (myResults.next()) {
+                System.out.println(myResults.getLong(1));
 
 
-
-
+            }
 
 
         } catch (SQLException throwables) {
