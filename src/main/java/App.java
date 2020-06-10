@@ -44,6 +44,9 @@ public class App {
 //            A delete example
 
 
+            //can you create one connection, one statement and keep reusing them
+            //by passing parameters ... (to build methods outside of the main class
+            //to use)
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
